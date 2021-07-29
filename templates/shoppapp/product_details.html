@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Shopp Product Details {% endblock title %}
+
+{% block content %}
+    <!-- Page Content -->
+    <!-- Single Starts Here -->
+    <div class="single-product">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <div style="background: #800080;" class="line-dec"></div>
+              <h1>Product Details</h1>
+            </div>
+          </div>
+          <div class="col-md-6">
+              <img width="100%" height="100%" src="{{ product.product_image.url }}" />
+          </div>
+            <div class="col-md-6">
+              <div class="right-content">
+                <h4>{{ product.name }}</h4>
+                <h6>NGN {{ product.discount_price }}</h6>
+                <p>
+                  {{ product.description }}
+                </p>
+                <span>{{ products.count }} left in stock</span>
+                <form action="" method="get">
+                  <label for="quantity">Quantity:</label>
+                  <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
+                    onfocus="if(this.value == '1') { this.value = ''; }" 
+                      onBlur="if(this.value == '') { this.value = '1';}"
+                      value="1" />
+                  <input style="background: #800080;" type="submit" class="button" value="Order Now!">
+                </form>
+                <div class="down-content">
+                  <div class="categories">
+                    <h6>Category: <span><a href="#">Women</a>,<a href="#">Fancy</a></span></h6>
+                  </div>
+                  <div class="share">
+                    <h6>Share: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></span></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Single Page Ends Here -->
+
+
+    <!-- Similar Starts Here -->
+    <div class="featured-items">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <div style="background: #800080;" class="line-dec"></div>
+              <h1>You May Also Like</h1>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+              {% for product in products  %}
+              <a href="{% url 'shoppapp:product_details' product.id product.name %}">
+                  <div class="featured-item">
+                    <img src="{{ product.image.url }}" alt="Item 1">
+                    <h4>{{ product.name }}</h4>
+                    <div style="display: flex;">
+                      <h6 style="text-decoration: line-through; color: red;">NGN {{product.price}}</h6> 
+                      <h6 style="margin-left: 10px;">NGN {{product.price}}</h6>
+                    </div>
+                  </div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Similar Ends Here -->
+    {% endblock content %}

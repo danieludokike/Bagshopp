@@ -1,0 +1,64 @@
+{% load static %}
+<!-- Pre Header -->
+<div style="background: #800080;" id="pre-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <span>Suspendisse laoreet magna vel diam lobortis imperdiet</span>
+        </div>
+        <div class="col-md-6">
+            <form style="margin-top: 10px;" action="#" method="post" role="form">
+            {% csrf_token %}
+            <div class="input-group">
+              <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" />
+              <button type="button" class="btn btn-outline-primary">search</button>
+            </div>
+            </form>
+          </div>
+        <div class="col-md-4">
+          <span>
+            <i style="color:gold;padding: 20px;" class="fa fa-cog fa-2x"></i>
+            <i style="color:gold;padding: 20px;" class="fa fa-user fa-2x"></i>
+          </span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i style="color:#800080; padding: 20px;" class="fa fa-shopping-cart fa-2x"></i></a>
+      <button style="background: #800080;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'shoppapp:home' %}">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'shoppapp:products' %}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'shoppapp:about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'shoppapp:contact' %}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Signup</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
